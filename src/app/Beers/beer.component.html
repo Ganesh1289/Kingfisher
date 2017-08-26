@@ -1,0 +1,29 @@
+<title>Welcome to single component</title>
+<div class="container">
+	<div *ngIf="beerData">	
+		<ul class="list-group row">
+			<li class="list-group-item" *ngFor="let beer of beerData">
+				
+					<!-- <img src = {{beer.image_url}}/> -->
+					<label class="col-md-2">{{beer.name}} </label> <br/>
+				
+				<div class="col-md-8">
+					<label>{{beer.name}} -- {{beer.tagline}} &nbsp; Contributed By - {{beer.contributed_by}}</label><br/>
+					<label>&nbsp;{{beer.description}}</label><br/>
+					<label>VOLUME:&nbsp;{{beer.volume.value}}&nbsp;{{beer.volume.unit}}</label><br/>
+					
+					<label>BOIL VOLUME:&nbsp;{{beer.boil_volume.value}}&nbsp;{{beer.boil_volume.unit}}</label><br/>
+													
+					<label>FOOD PAIRING:</label>
+					<li *ngFor="let food of beer.food_pairing">{{food}}</li><br/>
+					
+					<label>INGREDIENTS:</label>
+					<div *ngFor="let malt of beer.ingredients.malt">
+					  Name:&nbsp;{{malt.name}}
+					  <li>Value:&nbsp; {{malt.amount.value}} {{malt.amount.unit}}</li><br />
+					</div>					
+				</div>			
+			</li>			
+		</ul>
+	</div>
+</div>	

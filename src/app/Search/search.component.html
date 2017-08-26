@@ -1,0 +1,32 @@
+<div class="container">
+&nbsp;
+	<div class="col-lg-8">
+		<div class="input-group">
+			<input type="text" class="form-control" placeholder="Search for..." aria-label="Search for..." id="searchtxt" name="searchtxt" [(ngModel)]="searchtxt" />
+			<span class="input-group-btn">
+				<button type="button" class="btn btn-dark" id="searchbtn" name="searchbtn" 
+				(click)="OnSearch()">Search</button>
+			</span>
+		</div>
+	</div>
+	&nbsp;
+	<div class="row" *ngIf="userData"> 
+		<div class="col-md-5" >
+			<img src={{userData.avatar_url}}/>
+		</div>
+		<div class="col-md-7">
+			Login: {{userData.login}} <br>
+			Bio: {{userData.bio || "Not avaiable"}} <br>
+			Company: {{userData.company || "Not avaiable"}} <br>
+			Type: {{userData.type}} <br>
+			URL: {{userData.html_url}}
+		</div>
+	</div>
+	<div *ngIf="reposData">
+		<ul class="list-group">
+			<li class="list-group-item" *ngFor="let repo of reposData">
+			{{repo.name}} -- {{repo.owner.html_url}}</li>
+		</ul>
+	</div>
+
+</div>

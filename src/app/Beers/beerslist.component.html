@@ -1,0 +1,11 @@
+<div class="container col-md-8">
+	<div  *ngIf="beersData">
+	<h2 align="center">List of Beers</h2>
+		<ul class="list-group">
+			<li class="list-group-item" *ngFor="let beers of beersData">
+				<a routerLink="/beer/{{beers.name}}">{{beers.name}} </a> <br/>
+				<label>&nbsp;{{beers.description}}</label>
+			</li>
+		</ul>
+	</div>	
+</div>
